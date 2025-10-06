@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { getPopularMovies } from '../api/tmdb.js'
+import { CardImage } from './CardImage.jsx'
 
 export default function Movies() {
   const [movies, setMovies] = useState([])
@@ -10,10 +11,8 @@ export default function Movies() {
   }, [])
 
   return (
-    <div>
-      {movies.map(movie => (
-        <img key={movie.id} src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} />
-      ))}
+    <div className='justify-center items-center flex'>
+      <CardImage movies={movies} />
     </div>
   )
 }

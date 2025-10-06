@@ -9,3 +9,16 @@ export async function getPopularMovies() {
   const data = await response.json();
   return data.results;
 }
+export async function getTrailerSerie(movieId) {
+  const response = await fetch(`https://api.themoviedb.org/3/tv/${movieId}/videos?language=es-ES`, {
+    headers: {
+      Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
+    },
+  });
+  const data = await response.json();
+  const trailer = data.results.find(
+    (v) => v.site === 'YouTube' && v.type === 'Trailer'
+  );
+
+  return trailer ? trailer.key : null;
+}
