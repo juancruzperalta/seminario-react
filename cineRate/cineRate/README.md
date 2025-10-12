@@ -1,12 +1,16 @@
-# React + Vite
+# CineRate
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This web is a cine serie and movies rate.
 
-Currently, two official plugins are available:
+## Version 0.0
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Start a basic react project, using a tailwind and API (TMDB)
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Version 0.1
+
+- Creating a new components, header, and cards for top of series TV.
+
+## Version 0.2 
+
+- Add a trailer for a card, new button of click to close the trailer. The trailer is displayed in the center of the screen.

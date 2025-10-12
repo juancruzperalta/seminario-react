@@ -6,21 +6,30 @@ export const ShowTrailer = ({ movieId }) => {
   useEffect(() => {
     async function fetchTrailer() {
       const key = await getTrailerSerie(movieId);
-      setTrailerKey(key);
+
+      setTrailerKey(key)
     }
-    fetchTrailer();
+    fetchTrailer()
   }, [movieId])
 
-  return trailerKey ? (
-  <iframe
-    width="560"
-    height="315"
-    src={`https://www.youtube.com/embed/${trailerKey}`}
-    title="Trailer"
-    allowFullScreen
-    className="rounded-2xl shadow-lg"
-  ></iframe>
-) : (
-  <p className="text-white">No hay trailer disponible 😔</p>
-);
+  if (trailerKey) {
+    return (
+<>
+        <div className='w-[700px] h-[450px] flex items-center justify-center relative'>
+      <iframe
+        width="100%"
+        height="500"
+        src={`https://www.youtube.com/embed/${trailerKey}`}
+        title="Trailer"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            id="iframeVideo"
+        allowFullScreen
+        className='w-[600px] h-[400px] '
+        ></iframe>
+     </div>
+</>
+     )
+  } else {
+    return <p>Nada de trailer</p>
+  }
 }

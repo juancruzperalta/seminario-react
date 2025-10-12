@@ -8,4 +8,7 @@ export default defineConfig({
     tailwindcss(),
     react(),
   ],
+      headers: {
+      'Content-Security-Policy': "frame-ancestors 'self' https://www.youtube.com"
+    }
 })
