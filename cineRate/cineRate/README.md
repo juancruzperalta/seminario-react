@@ -14,3 +14,8 @@ This web is a cine serie and movies rate.
 ## Version 0.2 
 
 - Add a trailer for a card, new button of click to close the trailer. The trailer is displayed in the center of the screen.
+
+
+## Version 0.2.1
+
+- Implements new palet of colors. (Beta)

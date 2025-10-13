@@ -1,16 +1,29 @@
 @import "tailwindcss";
+:root{
+  --bgHeader: #121028;
+  --bgColor: #0D0B1E;
+  --bgSecondary: #1A1832;
+  --textPrimary: #EDECF5;
+  --textSecondary: #A1A1B5;
+  --colorAccent: #675AFF;
+  --colorSecondaryAccent: #FFB21E;
+  --buttomActive: #7C6EFF;
+  
 
+}
 html, body {
   height: 100%;
   overflow-y: auto;
   margin: 0;
   padding: 0;
+  color: var(--textPrimary);
 }
 
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(180deg, #1f1c2c 0%, #1f1c2c 100%);
+  background: var(--bgColor);
   min-height: 100vh;
 }
+
