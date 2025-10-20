@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { getTrailerSerie } from '../api/tmdb'
+import { getTrailerSerie } from '../../api/tmdb';
 
 export const ShowTrailer = ({ movieId }) => {
   const [trailerKey, setTrailerKey] = useState()
