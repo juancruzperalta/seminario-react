@@ -1,14 +1,11 @@
 @import "tailwindcss";
 :root{
-  --bgHeader: #121028;
-  --bgColor: #0D0B1E;
-  --bgSecondary: #1A1832;
-  --textPrimary: #EDECF5;
+  --bgHeader:linear-gradient(180deg, #181438 0%, #10141E 100%);;
+  --bgColor: #10141E;
+  --bgSecondary: #1E293B;
+  --textPrimary: #E2E8F0;
   --textSecondary: #A1A1B5;
-  --colorAccent: #675AFF;
-  --colorSecondaryAccent: #FFB21E;
-  --buttomActive: #7C6EFF;
-  
+  --colorAccent: #9D7AF2;
 
 }
 html, body {
