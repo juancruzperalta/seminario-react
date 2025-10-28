@@ -19,3 +19,10 @@ This web is a cine serie and movies rate.
 ## Version 0.2.1
 
 - Implements new palet of colors. (Beta)
+
+
+## Version 0.2.2
+
+
+- The header design was implemented and completed.
+- The card layout was designed, and a maximum text length was implemented to fit.
