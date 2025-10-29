@@ -1,11 +1,12 @@
 @import "tailwindcss";
 :root {
-  --bgColor: #0B0E17;
-  --bgSecondary: #171B26; 
-  --headerBG: #10121b;
-  --textPrimary: #F4F5FA;
-  --textSecondary: #A1A5B7;
-  --colorAccent:  #10B981;
+--bgColor:linear-gradient(180deg, rgb(14, 21, 41) 0%, rgb(16, 25, 48) 55%, rgb(17, 26, 55) 100%);
+--headerBG:rgba(12, 18, 33);
+--bgSecondary:rgb(12, 18, 33);
+--textPrimary: #F2F6FE;
+--textSecondary: #B0BCD2;
+--colorAccent: rgb(14, 211, 149);
+--colorHover: rgb(13, 229, 161);
 }
 html, body {
   height: 100%;
@@ -21,5 +22,6 @@ body {
   align-items: center;
   background: var(--bgColor);
   min-height: 100vh;
+  
 }
 

@@ -7,9 +7,9 @@ function App() {
   return (
     <>
     <Header/>
-      <div className="text-white text-center pt-16 ">
+      <div className="text-white text-center md:max-w-[1200px] pt-18 sm:max-w-[800px] max-w-[400px] gap-8 flex items-center justify-center flex-col">
         <Home />
-        <main className="pt-8 pb-8 md:max-w-[1000px] sm:max-w-[800px] max-w-[400px]">
+        <main>
         <SeriesGrid/>
         </main>
       </div>

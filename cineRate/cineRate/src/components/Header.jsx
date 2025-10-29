@@ -21,8 +21,7 @@ export const Header = () => {
     <nav className="flex items-center gap-8 text-[1rem] font-medium">
       <a
         href="#"
-        className="
-          hover:text-[#d1d1d1] hover:bg-[#141621]
+        className="hover:bg-[#141621]
           rounded-lg px-3 py-2 transition-colors
         "
       >
@@ -62,7 +61,7 @@ export const Header = () => {
       className="
         bg-[var(--colorAccent)]
         text-[#0B0F19] font-semibold text-[1rem] px-5 py-2 rounded-full
-        transition-all duration-500 hover:scale-[1.01] hover:bg-[var(--colorAccent)]/80 cursor-pointer
+        transition-all duration-500 hover:scale-[1.01] hover:bg-[var(--colorHover)] cursor-pointer
       "
     >
       Iniciar Sesión

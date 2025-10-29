@@ -26,3 +26,8 @@ This web is a cine serie and movies rate.
 
 - The header design was implemented and completed.
 - The card layout was designed, and a maximum text length was implemented to fit.
+
+## Version 0.2.3
+
+- Add the airing today serie..
+- The home is new, the image view is a one of airing today, implements details to SERIE, and the buttons of navegation (trailer and more information).

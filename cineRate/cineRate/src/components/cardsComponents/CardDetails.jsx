@@ -26,15 +26,23 @@ export const CardDetails = (serieId) => {
         </ul>
        </div>
        <div className="flex flex-wrap items-center justify-center gap-2 text-sm text-gray-300">
-        <ul className='flex items-center justify-center gap-1'>Languages: {detailsID?.languages?.map(lang => (
-          <span className='font-semibold text-[var(--colorAccent)]' key={lang}>[{lang}]</span>
-        ))}</ul>
-        <p>Origin Country: <span className='font-semibold text-[var(--colorAccent)]'>{detailsID?.origin_country?.map(orig => (<span key={orig}>{orig}</span>))}</span></p>
+          <ul className='flex items-center justify-center gap-1 font-semibold'>Languages{(detailsID?.languages?.length > 0 ? detailsID.languages : detailsID?.origin_country || ['unknown']).map((lang) => (
+                  <span className='uppercase font-semibold text-[var(--colorAccent)]' key={lang}>
+              [{lang}]
+            </span>
+              ))
+              }
+        <p className='font-semibold'>Origin:</p>
+            <span className='font-semibold text-[var(--colorAccent)]'>{detailsID?.origin_country?.length > 0 ? (detailsID?.origin_country?.map(orig => (<span key={orig}>{orig}</span>))) : (
+                <span  className='uppercase font-semibold text-[var(--colorAccent)]'>unknown</span>
+          )
+        }</span>
+          </ul>
         </div>
         <div className='flex items-center justify-center  gap-2 text-sm text-gray-300'>
-        <p className='flex flex-col'>Seasons: <span className='font-semibold text-[var(--colorAccent)]'>{detailsID?.number_of_seasons}</span></p>
-        <p className='flex flex-col'>Episodes: <span className='font-semibold text-[var(--colorAccent)]'>{detailsID?.number_of_episodes}</span></p>
-        <p className='flex flex-col'>Status: <span className="font-semibold text-[var(--colorAccent)]">{detailsID?.status}</span></p>
+        <p className='flex flex-col'>Seasons<span className='font-semibold text-[var(--colorAccent)] max-w-14'>{detailsID?.number_of_seasons}</span></p>
+        <p className='flex flex-col'>Episodes<span className='font-semibold text-[var(--colorAccent)] max-w-14'>{detailsID?.number_of_episodes}</span></p>
+        <p className='flex flex-col'>Status<span className="font-semibold text-[var(--colorAccent)] max-w-14 overflow-hidden whitespace-nowrap text-ellipsis">{detailsID?.status}</span></p>
         </div>
         {/* <div className='flex flex-col'>
           <span className='font-semibold'>Overview</span>
