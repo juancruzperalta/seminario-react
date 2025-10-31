@@ -1,14 +1,9 @@
-import React from 'react'
+
 export const Header = () => {
+
   return (
-<header
-  className="
-    fixed top-0 left-0 w-full  z-10
-    bg-[var(--headerBG)]
-    shadow-[0_1px_0_rgba(255,255,255,0.05)]
-    border-b border-[rgba(255,255,255,0.05)]
-    transition-all duration-300
-  "
+    <header
+      className="relative top-0 w-full z-10 transition-all duration-300 md:max-w-[1200px] sm:max-w-[800px] max-w-[400px]"
 >
   <div className="max-w-7xl mx-auto flex items-center justify-between px-8 py-4">
     {/* LOGO */}
@@ -64,7 +59,7 @@ export const Header = () => {
         transition-all duration-500 hover:scale-[1.01] hover:bg-[var(--colorHover)] cursor-pointer
       "
     >
-      Iniciar Sesión
+      Iniciar
     </button>
   </div>
 </header>

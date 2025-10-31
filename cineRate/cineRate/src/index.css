@@ -1,11 +1,10 @@
 @import "tailwindcss";
 :root {
---bgColor:linear-gradient(180deg, rgb(14, 21, 41) 0%, rgb(16, 25, 48) 55%, rgb(17, 26, 55) 100%);
---headerBG:rgba(12, 18, 33);
+--bgColor:rgb(16, 25, 48);
 --bgSecondary:rgb(12, 18, 33);
 --textPrimary: #F2F6FE;
 --textSecondary: #B0BCD2;
---colorAccent: rgb(14, 211, 149);
+--colorAccent: #0ed395;
 --colorHover: rgb(13, 229, 161);
 }
 html, body {
@@ -25,3 +24,24 @@ body {
   
 }
 
+.heroRight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  
+  background: linear-gradient(to right,
+    rgba(5, 10, 20, 0.30) 12%,
+    rgba(5, 10, 20, 0.15)50%
+  );
+  z-index: 6;
+}
+.heroLeft::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left,
+     rgba(5, 10, 20, 0.30) 12%,
+    rgba(5, 10, 20, 0.15)50%
+  );
+  z-index: 5;
+}
