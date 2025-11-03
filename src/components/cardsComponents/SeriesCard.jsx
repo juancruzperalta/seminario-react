@@ -1,39 +1,32 @@
-import React, { useLayoutEffect, useRef, useState } from 'react'
-import { ShowTrailer } from './ShowTrailer'
+import React, { useState } from 'react'
 import { CardDetails } from './CardDetails'
+import { TrailerModal } from '../trailerComponents/trailerModal';
 
 export const SeriesCard = ({ series }) => {
-   const [TrailerID, setTrailerID] = useState(null)
     const [DetailsID, setDetailsID] = useState(null)
-  function viewTrailer(serieId) {
-    setTrailerID(serieId);
-  }
+  const [TrailerID, setTrailerID] = useState()
   function viewDetails(serieId) {
     setDetailsID(serieId);
   }
+  function viewTrailer(idSerie) {
+    setTrailerID(idSerie);
+  }
   return (
     <>
-      {TrailerID && (
-        <div className='bg-black/45 w-full h-[100vh] absolute top-0 right-0 bottom-0 left-0 flex justify-center items-center z-10'>
-          <div className='w-[700px] h-[400px] relative'>
-
-          <ShowTrailer serieId={TrailerID} />
-        <button className='top-0 right-0 absolute bg-[var(--colorAccent)] opacity-80 hover:bg-[var(--buttomActive)] h-10 w-10 cursor-pointer rounded-full' onClick={() => setTrailerID(null)}>X</button>
-        </div>
-          </div>
-      )}
-
-      <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 relative '>
+      {TrailerID && <TrailerModal trailerID={TrailerID} />}
+      
+    <div className='grid 2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 relative '>
       {series.map((serieId) => (
         <div key={serieId.id}   className={`relative transition-all duration-500 overflow-visible ${
     serieId.id === DetailsID ? 'scale-[1.03]' : 'scale-100'
   }`}  onMouseEnter={() => viewDetails(serieId.id)}
       onMouseLeave={() => viewDetails(null)}>
           <img key={serieId.id} src={`https://image.tmdb.org/t/p/w500${serieId.backdrop_path}`} alt={serieId.name} className='h-[300px] object-cover rounded-lg shadow-md cursor-pointer' />
+
         <div
           className="absolute bottom-0 w-full bg-[var(--bgSecondary)]/90 flex flex-col items-center transition-all duration-300  rounded-b-lg py-2 px-2 border-t-1 border-gray-300/45 shadow-md max-w-full overflow-hidden whitespace-nowrap text-ellipsis"
             style={{
-                display: '-webkit-box',
+              display: '-webkit-box',
     WebkitLineClamp: serieId.id === DetailsID ? 6 : 1, // cantidad de líneas visibles
     WebkitBoxOrient: 'vertical',
           maxHeight: serieId.id === DetailsID ? '300px' : '50px',
@@ -47,20 +40,17 @@ export const SeriesCard = ({ series }) => {
             serieId.id === DetailsID
               ? 'opacity-100 translate-y-0 mt-2'
               : 'opacity-0 -translate-y-3 h-0 overflow-hidden'
-              }`}
+            }`}
             >
-            <CardDetails serieId={serieId.id} />
+              {serieId.id === DetailsID && (
+                <CardDetails
+                  serieId={serieId.id}
+                />
+              )}
+            <button className='p-0.5 w-full bg-white text-gray-900 uppercase hover:bg-gray-300 cursor-pointer' onClick={() => viewTrailer(serieId.id)}>View Trailer</button>
           </div>
 
-          {/* <button
-            className="cursor-pointer w-full p-1 font-medium bg-[var(--bgColor)] hover:bg-[var(--buttomActive)] transition-colors"
-            onClick={() => viewTrailer(serieId.id)}
-            style={{
-              opacity: serieId.id === DetailsID ? '0' : '100',
-            }}
-          >
-            Trailer
-          </button> */}
+
         </div>
           </div>
           ))

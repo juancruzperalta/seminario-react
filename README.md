@@ -35,3 +35,15 @@ This web is a cine serie and movies rate.
 ## Version 0.2.4
 
 - The home design is renew and image completed the bg...
+
+
+## Version 0.2.5
+
+- The home is updated
+- The min width is updated
+- Tag in home is a updated (in wait the bg is a gray)
+- Now, the content details implemented a button of view trailer... 
+- The trailer is open in new modal, and the bg is a gray with opacity - 70
+- The trailer connect with youtube to view a serie trailer. 
+- Button to close trailer is add. 
+- Add timeout for this trailer, is this didn't open, the message has view

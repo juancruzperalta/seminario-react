@@ -10,6 +10,7 @@ export async function getPopularSeries() {
   return data.results;
 }
 export async function getTrailerSerie(serieId) {
+  if (!serieId) return null;
   const response = await fetch(`https://api.themoviedb.org/3/tv/${serieId}/videos?language=es-ES`, {
     headers: {
       Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
@@ -23,7 +24,7 @@ export async function getTrailerSerie(serieId) {
   return trailer ? trailer.key : null;
 }
 
-export async function getDetailsOfSerie({serieId}) {
+export async function getDetailsOfSerie(serieId) {
   const response = await fetch(`https://api.themoviedb.org/3/tv/${serieId}?language=en-US`, {
     headers: {
       Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,

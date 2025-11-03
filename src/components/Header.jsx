@@ -3,9 +3,9 @@ export const Header = () => {
 
   return (
     <header
-      className="relative top-0 w-full z-10 transition-all duration-300 md:max-w-[1200px] sm:max-w-[800px] max-w-[400px]"
+      className="relative top-0 w-full z-10 transition-all duration-300 2xl:max-w-[96vw] xl:max-w-[1200px]   lg:max-w-[1000px] md:max-w-[700px] sm:max-w-[600px] max-w-[400px] "
 >
-  <div className="max-w-7xl mx-auto flex items-center justify-between px-8 py-4">
+  <div className="w-full flex items-center justify-between mx-0 py-4">
     {/* LOGO */}
     <span className="text-2xl font-bold tracking-wide">
       <span className="text-[var(--colorAccent)]">Cine</span>

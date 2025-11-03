@@ -6,11 +6,11 @@ import { Home } from "./components/Home"
 function App() {
   return (
     <>
-      <div className="w-dvw flex items-center md:max-w-[1200px] sm:max-w-[800px] max-w-[400px] m-auto">
+      <div className="w-dvw flex items-center xl:max-w-[1200px] 2xl:max-w-[96vw] lg:max-w-[1000px] md:max-w-[700px] sm:max-w-[600px] max-w-[400px]  m-auto">
     <Header/>
       <div className="text-white text-center gap-8 flex items-center justify-center flex-col absolute top-0 m-auto left-0 right-0">
         <Home />
-        <main className="md:max-w-[1200px] sm:max-w-[800px] max-w-[400px]">
+        <main className="xl:max-w-[1200px] 2xl:max-w-[96vw] lg:max-w-[1000px] md:max-w-[700px] sm:max-w-[600px] max-w-[400px] ">
         <SeriesGrid/>
         </main>
       </div>
