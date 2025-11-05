@@ -11,7 +11,8 @@ export default function SeriesGrid() {
   }, [])
 
   return (
-    <div className='justify-center items-center flex'>
+    <div className='justify-center items-center flex flex-col'>
+      <h2 className='text-md font-semibold uppercase text-[#0ed395]'>Populars</h2>
       <SeriesCard series={serieTV} />
     </div>
   )

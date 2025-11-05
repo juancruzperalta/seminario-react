@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { getDetailsOfSerie, getTopRatedOfSerie } from '../api/tmdb';
+import { getDetailsOfSerie, getAiringTodaySerie } from '../api/tmdb';
+import { TrailerModal } from './trailerComponents/trailerModal';
 
 export const Home = () => {
   const [currentSerie, setCurrentSerie] = useState();
   const [currentSerieDetails, setCurrentSerieDetails] = useState();
-
+  const [showTrailerID, setShowTrailer] = useState(null)
   const serieOne = currentSerie?.results?.[0];
   useEffect(() => {
     async function getRated() {
-      const key = await getTopRatedOfSerie();
+      const key = await getAiringTodaySerie();
       setCurrentSerie(key);
     }
     const timer = setTimeout(() => {
@@ -19,14 +20,16 @@ export const Home = () => {
   useEffect(() => {
     async function getDetails() {
       if (serieOne?.id) {
-        const detailsData = await getDetailsOfSerie({ serieId: serieOne.id });
+        const detailsData = await getDetailsOfSerie(serieOne?.id);
         setCurrentSerieDetails(detailsData);
       }
     }
 
     getDetails();
   }, [serieOne]);
-
+  function showTrailerFunc() {
+    setShowTrailer(serieOne.id)
+  }
   return (
     <>
       <div className='relative heroRight heroLeft  flex items-center justify-center w-full h-[100vh] overflow-hidden p-0 m-0  shadow-2xl shadow-gray-800 backdrop-brightness-[30%]
@@ -34,7 +37,7 @@ export const Home = () => {
         <img className="object-cover opacity-80 absolute top-0 left-0 w-full h-full overflow-hidden" src={`https://image.tmdb.org/t/p/original/${serieOne?.backdrop_path}`} alt={serieOne?.name} />
         
         <div className="text-left text-[0.9rem]  z-20 text-gray-300  absolute  left-0 top-auto   mt-auto mb-auto gap-2 flex flex-col  h-full justify-end bottom-3 xl:max-w-[1200px]  2xl:max-w-[96vw] lg:max-w-[1000px] md:max-w-[700px] sm:max-w-[600px] max-w-[400px]  mx-auto pb-3  inset-0 ">
-          <h2 className='text-md font-semibold uppercase text-[#0ed395]'>Top one rated today</h2>
+          <h2 className='text-md font-semibold uppercase text-[#0ed395]'>On Air Today</h2>
           <h3 className='text-4xl font-bold uppercase text-white leading-tight'>
             {serieOne?.name}</h3>
           <div className='flex flex-wrap items-center gap-3 text-sm'>
@@ -44,10 +47,10 @@ export const Home = () => {
             <span className='font-semibold text-gray-200/95 text-[1rem]  p-0 m-0 pt-0 pb-0 rounded-sm'>{serieOne?.first_air_date ? <span className='border-1 border-gray-300  p-[0.2rem] m-0 pt-0 pb-0 rounded-sm'>{new Date(serieOne?.first_air_date).getFullYear()}</span> :  (
       <span className='bg-gray-500/20 rounded w-[30px] h-[1rem] inline-block animate-pulse'></span>
     )}</span>
-            <span className='font-semibold text-gray-200/95 text-[1rem] p-0 m-0 pt-0 pb-0 rounded-sm'>{currentSerieDetails?.origin_country?.[0] ? <span className='border-1 border-gray-300   p-[0.2rem] m-0 pt-0 pb-0 rounded-sm'>{currentSerieDetails?.origin_country?.[0]}</span>:  (
+            <span className='font-semibold text-gray-200/95 text-[1rem] p-0 m-0 pt-0 pb-0 rounded-sm'>{serieOne?.origin_country?.[0] ? <span className='border-1 border-gray-300   p-[0.2rem] m-0 pt-0 pb-0 rounded-sm'>{serieOne?.origin_country?.[0]}</span>:  (
       <span className='bg-gray-500/20 rounded w-[30px] h-[1rem] inline-block animate-pulse'></span>
     )}</span>
-            <span className='font-semibold text-gray-200/95 text-[1rem] p-0 m-0 pt-0 pb-0 rounded-sm'>{currentSerieDetails?.number_of_seasons ? <span className=' border-1 border-gray-300   p-[0.2rem] m-0 pt-0 pb-0 rounded-sm'>{currentSerieDetails?.number_of_seasons + 'Seasons'}</span> :  (
+            <span className='font-semibold text-gray-200/95 text-[1rem] p-0 m-0 pt-0 pb-0 rounded-sm'>{currentSerieDetails?.number_of_seasons ? <span className=' border-1 border-gray-300   p-[0.2rem] m-0 pt-0 pb-0 rounded-sm'>{currentSerieDetails?.number_of_seasons + ' Seasons'}</span> :  (
       <span className='bg-gray-500/20 rounded w-[30px] h-[1rem] inline-block animate-pulse'></span>
     )}
             </span>
@@ -71,9 +74,10 @@ export const Home = () => {
             </span>
           </div>
           <div className='gap-4 flex flex-row items-center'>
-            <button className='p-2 bg-white text-gray-900 uppercase hover:bg-gray-300 cursor-pointer '>View Trailer</button>
+            <button className='p-2 bg-white text-gray-900 uppercase hover:bg-gray-300 cursor-pointer' onClick={() => showTrailerFunc(serieOne)}>View Trailer</button>
             <button className='p-2 text-white bg-gray-300/30 uppercase hover:bg-gray-700/60 cursor-pointer  backdrop-blur-md '>More Information</button>
           </div>
+            {showTrailerID && <TrailerModal trailerID={showTrailerID} />}
        </div>
       </div>
       </>

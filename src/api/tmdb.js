@@ -1,6 +1,6 @@
 const BASE_URL = 'https://api.themoviedb.org/3';
 
-export async function getPopularSeries() {
+export async function getPopularSeries() { //popular series for users.
   const response = await fetch(`https://api.themoviedb.org/3/tv/popular?language=en-US&page=1`, {
     headers: {
       Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
@@ -9,7 +9,7 @@ export async function getPopularSeries() {
   const data = await response.json();
   return data.results;
 }
-export async function getTrailerSerie(serieId) {
+export async function getTrailerSerie(serieId) { //trailer of serie ID
   if (!serieId) return null;
   const response = await fetch(`https://api.themoviedb.org/3/tv/${serieId}/videos?language=es-ES`, {
     headers: {
@@ -24,7 +24,7 @@ export async function getTrailerSerie(serieId) {
   return trailer ? trailer.key : null;
 }
 
-export async function getDetailsOfSerie(serieId) {
+export async function getDetailsOfSerie(serieId) { //details of serie
   const response = await fetch(`https://api.themoviedb.org/3/tv/${serieId}?language=en-US`, {
     headers: {
       Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
@@ -33,7 +33,7 @@ export async function getDetailsOfSerie(serieId) {
   const data = await response.json();
   return data;
 }
-export async function getTopRatedOfSerie() {
+export async function getAiringTodaySerie() { //series of tv that today is a new episodio
   
   const response = await 
 fetch('https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=1', {

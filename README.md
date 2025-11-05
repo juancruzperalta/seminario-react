@@ -47,3 +47,9 @@ This web is a cine serie and movies rate.
 - The trailer connect with youtube to view a serie trailer. 
 - Button to close trailer is add. 
 - Add timeout for this trailer, is this didn't open, the message has view
+
+
+
+## PROX
+- Add the JWT in login and register.
+- Add the backend (for JWT and BD)

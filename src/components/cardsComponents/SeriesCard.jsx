@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { CardDetails } from './CardDetails'
 import { TrailerModal } from '../trailerComponents/trailerModal';
 
@@ -11,18 +11,35 @@ export const SeriesCard = ({ series }) => {
   function viewTrailer(idSerie) {
     setTrailerID(idSerie);
   }
+  const serieRef = useRef(null);
+  
+  const scrollToLeft = () => {
+    serieRef.current.scrollBy({left: -600, behavitor: 'smooth'})
+  }
+
+  const scrollToRight = () => {
+    serieRef.current.scrollBy({left: 600, behavitor: 'smooth'})
+  }
+
   return (
     <>
       {TrailerID && <TrailerModal trailerID={TrailerID} />}
       
-    <div className='grid 2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 relative '>
+    <div className='flex flex-row relative '>
+      <button
+        className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/60 text-white rounded-full px-3 py-2 hover:bg-black/80"
+        onClick={scrollToLeft}
+        > 
+        ‹
+        </button>
+        <div className='flex gap-4 overflow-hidden scroll-smooth px-10 py-4 max-w-[1200px]' ref={serieRef}>
+
       {series.map((serieId) => (
-        <div key={serieId.id}   className={`relative transition-all duration-500 overflow-visible ${
+        <div key={serieId.id}   className={`relative min-w-[200px] transition-all duration-500 overflow-hidden ${
     serieId.id === DetailsID ? 'scale-[1.03]' : 'scale-100'
   }`}  onMouseEnter={() => viewDetails(serieId.id)}
       onMouseLeave={() => viewDetails(null)}>
           <img key={serieId.id} src={`https://image.tmdb.org/t/p/w500${serieId.backdrop_path}`} alt={serieId.name} className='h-[300px] object-cover rounded-lg shadow-md cursor-pointer' />
-
         <div
           className="absolute bottom-0 w-full bg-[var(--bgSecondary)]/90 flex flex-col items-center transition-all duration-300  rounded-b-lg py-2 px-2 border-t-1 border-gray-300/45 shadow-md max-w-full overflow-hidden whitespace-nowrap text-ellipsis"
             style={{
@@ -55,6 +72,13 @@ export const SeriesCard = ({ series }) => {
           </div>
           ))
         }
+        </div>
+              <button
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/60 text-white rounded-full px-3 py-2 hover:bg-black/80" 
+          onClick={scrollToRight}
+      >
+        ›
+      </button>
     </div>
     </>
     )
