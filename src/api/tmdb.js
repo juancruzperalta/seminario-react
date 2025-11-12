@@ -44,3 +44,27 @@ fetch('https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=1', {
   const data = await response.json();
   return data;
 }
+
+
+export async function getRecommendationsSerie(serieId) {
+  const serie = await fetch(`https://api.themoviedb.org/3/tv/${serieId}/recommendations`, {
+    headers: {
+      Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
+    accept: 'application/json',
+    },
+  });
+  const data = await serie.json();
+  return data;
+}
+
+//Top ten series of popular...
+export async function topTenSeries() {
+  const serieTop = await fetch(`https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1`, {
+    headers: {
+            Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
+    accept: 'application/json',
+    }
+  })
+  const data = await serieTop.json();
+  return data.results;
+}

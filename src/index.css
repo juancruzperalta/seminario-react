@@ -3,7 +3,7 @@
 --bgColor:rgb(16, 25, 48);
 --bgSecondary:rgb(12, 18, 33);
 --textPrimary: #F2F6FE;
---textSecondary: #B0BCD2;
+--textSecondary: #e5e7eb;
 --colorAccent: #0ed395;
 --colorHover: rgb(13, 229, 161);
 }
@@ -44,4 +44,8 @@ body {
     rgba(5, 10, 20, 0.15)50%
   );
   z-index: 5;
+}
+
+.moveCard:hover{
+  background-color: gray;
 }
