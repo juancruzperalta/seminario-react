@@ -68,3 +68,21 @@ export async function topTenSeries() {
   const data = await serieTop.json();
   return data.results;
 }
+
+export async function getPremiereSer() {
+    const today = new Date();
+  const nextWeek = new Date(today);
+  nextWeek.setDate(today.getDate() + 7);
+
+  const startDate = today.toISOString().slice(0, 10);
+  const endDate = nextWeek.toISOString().slice(0, 10);
+
+    const serieTop = await fetch(`https://api.themoviedb.org/3/discover/tv?language=es-ES&page=1&sort_by=first_air_date.asc&first_air_date.gte=${startDate}&first_air_date.lte=${endDate}`, {
+    headers: {
+     Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
+    accept: 'application/json',
+    }
+  })
+  const data = await serieTop.json();
+  return data.results;
+}

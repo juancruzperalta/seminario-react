@@ -3,7 +3,7 @@ import { CardDetails } from './CardDetails'
 import { TrailerModal } from '../trailerComponents/trailerModal';
 import { getPopularSeries } from '../../api/tmdb';
 
-export const SeriesCard = () => {
+export const SeriesPopulars = () => {
     const [DetailsID, setDetailsID] = useState(null)
   const [TrailerID, setTrailerID] = useState()
   const [series, setSerieTV] = useState([]);
@@ -34,7 +34,7 @@ export const SeriesCard = () => {
         onClick={() => scrollButton(-1000)}> 
 <svg className='w-8 h-8 fill-white cursor-pointer' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M491 100.8C478.1 93.8 462.3 94.5 450 102.6L192 272.1L192 128C192 110.3 177.7 96 160 96C142.3 96 128 110.3 128 128L128 512C128 529.7 142.3 544 160 544C177.7 544 192 529.7 192 512L192 367.9L450 537.5C462.3 545.6 478 546.3 491 539.3C504 532.3 512 518.8 512 504.1L512 136.1C512 121.4 503.9 107.9 491 100.9z"/></svg>
         </button>
-        <div className='flex items-start justify-start gap-4 overflow-hidden scroll-smooth py-4 max-w-[1200px] ' ref={serieRef}>
+        <div className='flex items-start justify-start gap-4 overflow-hidden scroll-smooth py-4 xl:max-w-[1200px] 2xl:max-w-[96vw] lg:max-w-[1000px] md:max-w-[700px] sm:max-w-[600px] max-w-[400px]' ref={serieRef}>
 
       {series.map((serieId) => (
         <div key={serieId.id} className={`relative min-w-[200px] transition-all duration-500 overflow-hidden  ${

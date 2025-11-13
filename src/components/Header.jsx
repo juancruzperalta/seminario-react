@@ -16,7 +16,8 @@ export const Header = () => {
     <nav className="flex items-center gap-8 text-[1rem] font-medium">
       <a
         href="#"
-        className="hover:bg-[#141621]
+        className="
+           hover:bg-gray-400/20
           rounded-lg px-3 py-2 transition-colors
         "
       >
@@ -25,7 +26,7 @@ export const Header = () => {
       <a
         href="#"
         className="
-          hover:text-[#d1d1d1] hover:bg-[#141621]
+           hover:bg-gray-400/20
           rounded-lg px-3 py-2 transition-colors
         "
       >
@@ -34,7 +35,7 @@ export const Header = () => {
       <a
         href="#"
         className="
-          hover:text-[#d1d1d1]  hover:bg-[#141621]
+           hover:bg-gray-400/20
           rounded-lg px-3 py-2 transition-colors
         "
       >
@@ -43,7 +44,7 @@ export const Header = () => {
       <a
         href="#"
         className="
-          hover:text-[#d1d1d1] hover:bg-[#141621]
+           hover:bg-gray-400/20
           rounded-lg px-3 py-2 transition-colors
         "
       >
